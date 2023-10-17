@@ -5,8 +5,11 @@ import {
   FaUserAlt,
   FaRegChartBar,
   FaCommentAlt,
+  FaUbuntu,
   FaShoppingBag,
+  FaExclamationTriangle,
   FaThList,
+  FaDollarSign,
 } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
 
@@ -25,14 +28,14 @@ const Sidebar = ({ children }) => {
       icon: <FaUserAlt />,
     },
     {
-      path: "/analytics",
-      name: "Analytics",
-      icon: <FaRegChartBar />,
+      path: "/income",
+      name: "Income",
+      icon: <FaDollarSign/>,
     },
     {
-      path: "/comment",
-      name: "Comment",
-      icon: <FaCommentAlt />,
+      path: "/promote",
+      name: "Promote",
+      icon: <FaUbuntu/>,
     },
     {
       path: "/product",
@@ -40,9 +43,9 @@ const Sidebar = ({ children }) => {
       icon: <FaShoppingBag />,
     },
     {
-      path: "/productList",
-      name: "Product List",
-      icon: <FaThList />,
+      path: "/help",
+      name: "Help",
+      icon: <FaExclamationTriangle />,
     },
   ];
   return (

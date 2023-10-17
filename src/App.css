@@ -14,7 +14,7 @@ main {
 .sidebar {
   background: #2d2f32;
   color: #fff;
-  height: 120vh;
+  height: 175vh;
   width: 300px;
   transition: all 0.5s;
 }

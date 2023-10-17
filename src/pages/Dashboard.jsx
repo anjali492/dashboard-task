@@ -3,17 +3,23 @@ import React from "react";
 import { Navbar, Card, Container, Row, Col } from "react-bootstrap";
 import Dropdown from "react-bootstrap/Dropdown";
 import DropdownButton from "react-bootstrap/DropdownButton";
+import CanvasJSReact from "@canvasjs/react-charts";
 import Nav from "react-bootstrap/Nav";
 import NavDropdown from "react-bootstrap/NavDropdown";
-
 import {
   FaUser,
   FaEnvelope,
   FaPhone,
+  FaDollarSign,
   FaMapMarkedAlt,
   FaSearchDollar,
   FaFunnelDollar,
   FaSearch,
+  FaElementor,
+  FaCoffee,
+  FaLock,
+  FaBalanceScale,
+  FaWallet,
 } from "react-icons/fa";
 import SearchBox from "../components/SearchBox";
 import TableData from "../components/TableData";
@@ -21,32 +27,95 @@ import TableData from "../components/TableData";
 const hrStyle = {
   width: "105%",
 };
+var CanvasJS = CanvasJSReact.CanvasJS;
+var CanvasJSChart = CanvasJSReact.CanvasJSChart;
+var CanvasJS = CanvasJSReact.CanvasJS;
+var CanvasJSChart = CanvasJSReact.CanvasJSChart;
 
 const Dashboard = () => {
+  const options = {
+    title: {
+      text: "Overview",
+     
+    },
+    data: [
+      {
+        // Change type to "doughnut", "line", "splineArea", etc.
+        type: "column",
+        dataPoints: [
+          { label: "jan", y: 17 },
+          { label: "Feb", y: 12 },
+          { label: "Mar", y: 25 },
+          { label: "April", y:18 },
+          { label: "May", y: 20 },
+          { label: "june", y: 8 },
+          { label: "july", y: 20 },
+          { label: "Aug", y: 29 },
+          { label: "sep", y: 27 },
+          { label: "oct", y: 25 },
+          { label: "Nov", y: 23 },
+          { label: "Dec", y: 25 },
+        ],
+      },
+    ],
+  };
+  const option = {
+    animationEnabled: true,
+    title: {
+      text: "Customers"
+    },
+    subtitles: [
+      {
+        text: "65% Total New Customers",
+          verticalAlign: "center",
+        fontSize: 14,
+        // dockInsidePlotArea: true,
+      },
+    ],
+    data: [
+      {
+        type: "doughnut",
+        // showInLegend: true,
+        // indexLabel: "{name}: {y}",
+        // yValueFormatString: "#,###'%'",
+        dataPoints: [
+          { name: "", y: 5 },
+          { name: "", y: 31 },
+          { name: "", y: 40 },
+        ],
+      },
+    ],
+  };
+
+
   const cardsData = [
     {
-      icon: FaUser,
+      icon: FaDollarSign,
       color: "#3498db",
-      title: "User 1",
-      text: "This is user 1's data.",
+      title: "$198k ",
+      text: "37.8% this month",
+      abc:"Earning"
     },
     {
-      icon: FaEnvelope,
+      icon:FaElementor,
       color: "#e74c3c",
-      title: "User 2",
-      text: "This is user 2's data.",
+      title: "$2.4k",
+      text: "2% this month",
+      abc:"Orders"
     },
     {
-      icon: FaPhone,
+      icon: FaWallet,
       color: "#27ae60",
-      title: "User 3",
-      text: "This is user 3's data.",
+      title: "$2.4k",
+      text: "2% this month",
+      abc:"Balance"
     },
     {
-      icon: FaMapMarkedAlt,
+      icon: FaLock,
       color: "#f39c12",
-      title: "User 4",
-      text: "This is user 4's data.",
+      title: "$89k",
+      text: "11% this week",
+      abc:"Total Sales"
     },
   ];
 
@@ -80,6 +149,7 @@ const Dashboard = () => {
                       </Col>
                       <Col>
                         <div className="top-right-center">
+                        {data.abc}
                           <Card.Title className="card-title">
                             {data.title}
                           </Card.Title>
@@ -100,20 +170,22 @@ const Dashboard = () => {
         <Row>
           <Col sm={8}>
             <Card>
-              <Card.Body></Card.Body>
+              <Card.Body>
+                {" "}
+                <CanvasJSChart
+                  options={options}
+                  // onRef={(ref) => (this.chart = ref)}
+                />
+              </Card.Body>
             </Card>
           </Col>
           <Col sm={4}>
             <Card>
               <Card.Body>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem
-                nobis quod perferendis cum voluptates incidunt eos quaerat dicta
-                velit nam earum rerum, vero dolorum iure labore modi. Iure at
-                quibusdam aspernatur magnam fugit quam nulla atque praesentium
-                voluptatibus expedita in deserunt blanditiis ad nesciunt, error,
-                beatae accusantium explicabo veritatis. Deleniti reiciendis rem
-                sed placeat enim dolorem, impedit, sit suscipit? At repellat
-                consequatur fugit.
+                <CanvasJSChart
+                  options={option}
+                  /* onRef={ref => this.chart = ref} */
+                />
               </Card.Body>
             </Card>
           </Col>
